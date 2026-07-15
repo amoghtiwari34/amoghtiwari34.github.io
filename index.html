@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amogh Tiwari</title>
+<meta name="description" content="Amogh Tiwari. Research and reads on behavioral design and consumer software.">
+<style>
+  :root{
+    --ink:#0b0d12; --muted:#5b6470; --rule:#dce1e8; --blue:#1550c8; --blue-soft:#eaf0fb; --blue-line:#b9cdf0;
+    --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;color:var(--ink);font-family:var(--serif);line-height:1.6;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:44rem;margin:0 auto;padding:8vh 1.4rem 6rem;}
+
+  /* hero */
+  .hero{display:flex;align-items:center;gap:1.4rem;margin:0 0 1rem;}
+  .avatar{position:relative;width:5.2rem;height:5.2rem;flex:none;border-radius:50%;overflow:hidden;
+    background:var(--blue-soft);}
+  .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;}
+  .mono-av{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:1.7rem;color:var(--blue);letter-spacing:.02em;z-index:1;}
+  .hero h1{font-size:2.1rem;font-weight:400;letter-spacing:-.01em;line-height:1.05;}
+  .hero .role{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--muted);
+    text-transform:uppercase;margin-top:.5rem;}
+
+  .lede{font-size:1.08rem;color:var(--muted);max-width:34rem;margin:1.6rem 0 0;}
+
+  .connect{display:flex;gap:1.4rem;margin-top:1.6rem;flex-wrap:wrap;}
+  .connect a{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.76rem;
+    color:var(--blue);text-decoration:none;letter-spacing:.02em;}
+  .connect a:hover{text-decoration:underline;}
+  .connect svg{width:1.05rem;height:1.05rem;fill:currentColor;}
+
+  /* section */
+  .sec{margin-top:4.5rem;}
+  .sec-h{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--blue);padding-bottom:.8rem;border-bottom:1px solid var(--rule);margin-bottom:1.6rem;}
+
+  /* book card */
+  .card{display:block;text-decoration:none;color:inherit;position:relative;overflow:hidden;
+    border:1px solid var(--rule);padding:1.6rem 1.7rem;}
+  .card:hover{border-color:var(--blue-line);}
+  .card svg.curve{position:absolute;right:0;bottom:0;width:55%;height:70%;z-index:0;opacity:.9;}
+  .card .inner{position:relative;z-index:1;}
+  .card .kicker{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:.7rem;}
+  .card h2{font-size:1.55rem;font-weight:400;letter-spacing:-.01em;line-height:1.05;}
+  .card h2 span{color:var(--blue);}
+  .card p{color:var(--muted);font-size:.98rem;max-width:28rem;margin:.7rem 0 1.1rem;}
+  .card .go{display:inline-flex;gap:1.1rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;color:var(--blue);}
+  .card .go span{border-bottom:1px solid var(--blue-line);padding-bottom:1px;}
+
+  .soon{margin-top:1.4rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;color:var(--muted);}
+
+  footer{margin-top:5rem;padding-top:1.4rem;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--muted);}
+
+  @media (max-width:520px){
+    .hero{flex-direction:column;align-items:flex-start;gap:1rem;}
+    .card .curve{width:70%;opacity:.5;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="avatar">
+      <img src="amogh.jpg" alt="Amogh Tiwari" onerror="this.style.display='none'">
+      <span class="mono-av">AT</span>
+    </div>
+    <div>
+      <h1>Amogh Tiwari</h1>
+      <p class="role">Founder &middot; writing on behavioral design</p>
+    </div>
+  </header>
+
+  <p class="lede">Building consumer software, and writing about how it moves the people who use it. More on the work and the background soon.</p>
+
+  <div class="connect">
+    <a href="https://x.com/itsamoghtiwari" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.244 2H21.5l-7.09 8.104L22.75 22h-6.53l-5.11-6.68L5.24 22H1.98l7.58-8.66L1.25 2h6.69l4.62 6.11L18.244 2Zm-1.145 18.03h1.807L7.03 3.87H5.09l12.01 16.16Z"/></svg>@itsamoghtiwari</a>
+    <a href="https://www.linkedin.com/in/itsamoghtiwari/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6.94 5.001a1.94 1.94 0 1 1-3.879 0 1.94 1.94 0 0 1 3.88 0ZM3.3 8.48h3.32V21H3.3V8.48Zm5.213 0h3.18v1.71h.045c.443-.84 1.525-1.726 3.14-1.726 3.358 0 3.977 2.21 3.977 5.083V21h-3.318v-5.49c0-1.31-.024-2.994-1.824-2.994-1.827 0-2.107 1.427-2.107 2.9V21H8.513V8.48Z"/></svg>LinkedIn</a>
+    <a href="mailto:amogh@beomelo.com"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M3 5.5h18v13H3zM3.5 6l8.5 6 8.5-6"/></svg>amogh@beomelo.com</a>
+  </div>
+
+  <section class="sec">
+    <p class="sec-h">Research &amp; reads</p>
+
+    <a class="card" href="/behavioral-debt/">
+      <svg class="curve" viewBox="0 0 200 120" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#1550c8" stop-opacity="0.05"/>
+          <stop offset="0.6" stop-color="#1550c8" stop-opacity="0.4"/>
+          <stop offset="1" stop-color="#1550c8" stop-opacity="1"/></linearGradient></defs>
+        <line x1="6" y1="104" x2="194" y2="104" stroke="#0b0d12" stroke-opacity="0.1" stroke-width="0.6" stroke-dasharray="1 4"/>
+        <path d="M6 104 C 70 102, 120 96, 194 20" fill="none" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="194" cy="20" r="3" fill="#1550c8"/>
+      </svg>
+      <div class="inner">
+        <p class="kicker">Book &middot; work in progress</p>
+        <h2>Behavioral <span>Debt</span></h2>
+        <p>A field guide to the hidden cost of persuasive design, and how to build products that do not borrow against trust. Every claim is checkable, or marked.</p>
+        <span class="go"><span>Read online</span><span>Download PDF</span></span>
+      </div>
+    </a>
+
+    <p class="soon">More reads and case studies coming here.</p>
+  </section>
+
+  <footer>Amogh Tiwari &middot; 2026</footer>
+
+</div>
+</body>
+</html>
