@@ -144,6 +144,22 @@
   .mmenu-reads{margin-top:2rem;display:flex;flex-direction:column;gap:.9rem;align-items:center;}
   .mmenu-reads a,.mmenu-reads span{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-decoration:none;}
 
+  .p-section{margin-top:2.8rem;}
+  .p-sh{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:1rem;}
+  .p-grid{display:flex;flex-wrap:wrap;gap:.7rem;}
+  .p-item{font-family:var(--serif);font-size:1rem;color:var(--cream);text-decoration:none;padding:.5rem .9rem;
+    border:1px solid var(--line);display:inline-flex;align-items:center;gap:.6rem;transition:border-color .3s;}
+  .p-item span{font-family:var(--mono);font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);}
+  .p-item:hover{border-color:var(--dim);}
+  .p-item.off{color:var(--faint);pointer-events:none;}
+  .p-item.off span{color:var(--faint);}
+  .p-soon{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);}
+
+  /* teleport: zoom into the shader, then open the book */
+  .warp .stage{transform:scale(1.9);opacity:0;transform-origin:50% 46%;transition:transform .8s cubic-bezier(.6,0,.15,1),opacity .8s ease;}
+  .warp #fx,.warp .sky{transform:scale(1.5);transition:transform .8s cubic-bezier(.6,0,.15,1);}
+  .warp .grain,.warp .vig,.warp .mtoggle{opacity:0;transition:opacity .5s;}
+
   @media (max-width:680px){
     .stage{padding:1.3rem 1.3rem;}
     .lbl{font-size:.56rem;letter-spacing:.15em;}
@@ -243,12 +259,26 @@
       <h2 class="p-name">Amogh Tiwari</h2>
       <div class="p-bio">
         <p>I build consumer software for a living, which means my job is to get people to open an app, come back, and eventually pay for it. That is also why I write about behavioral design: from inside the room where the decisions get made, not from above it.</p>
-        <p>Behavioral Debt is my attempt to map how software moves people, what it quietly costs them, and how to build the honest version. It is written in the open, and every claim in it is meant to be checked.</p>
+        <p>Behavioral Debt is my attempt to map how software moves people, what it quietly costs them, and how to build the honest version. Every claim in it is meant to be checked.</p>
         <p class="small">Currently building <a href="https://www.beomelo.com" target="_blank" rel="noopener">Omelo</a>, precision pet healthcare and parenting</p>
         <div class="p-links">
           <a href="https://x.com/itsamoghtiwari" target="_blank" rel="noopener">X / Twitter</a>
+          <a href="https://github.com/amoghtiwari34" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/itsamoghtiwari/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="mailto:amogh@beomelo.com">Email</a>
+        </div>
+        <div class="p-section">
+          <p class="p-sh">Practice</p>
+          <div class="p-grid">
+            <a class="p-item" href="https://github.com/amoghtiwari34/omelo-seo-aeo-case-study" target="_blank" rel="noopener">Growth <span>Active</span></a>
+            <span class="p-item off">Design Engineering <span>Soon</span></span>
+            <span class="p-item off">Art Direction <span>Soon</span></span>
+            <span class="p-item off">UX <span>Soon</span></span>
+          </div>
+        </div>
+        <div class="p-section">
+          <p class="p-sh">Media</p>
+          <p class="p-soon">Coming soon</p>
         </div>
       </div>
     </div>
@@ -286,6 +316,15 @@
     mt.addEventListener('click',function(){mt.classList.toggle('open');mm.classList.toggle('show');});
     mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mt.classList.remove('open');mm.classList.remove('show');});});
     document.getElementById('mAbout').addEventListener('click',function(e){e.preventDefault();document.getElementById('profile').classList.add('show');});
+  })();
+  (function(){
+    var cta=document.querySelector('.cta');
+    if(cta) cta.addEventListener('click',function(e){
+      e.preventDefault();
+      window.__warp=true;
+      document.body.classList.add('warp');
+      setTimeout(function(){ window.location.href = cta.getAttribute('href'); }, 780);
+    });
   })();
 </script>
 
@@ -343,12 +382,13 @@
   addEventListener('mousemove',function(e){set(e.clientX,e.clientY);});
   addEventListener('touchmove',function(e){if(e.touches[0])set(e.touches[0].clientX,e.touches[0].clientY);},{passive:true});
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var t0=null;
+  var last=null,clock=0;
   function frame(ts){
-    if(t0===null)t0=ts;var time=(ts-t0)/1000.0;
+    if(last===null)last=ts;var dt=(ts-last)/1000.0;last=ts;
+    clock+=dt*(window.__warp?4.5:1.0);
     mx+=(tx-mx)*0.045;my+=(ty-my)*0.045;
     gl.uniform2f(uRes,cv.width,cv.height);
-    gl.uniform1f(uT,reduce?12.0:time);
+    gl.uniform1f(uT,reduce?12.0:clock);
     gl.uniform2f(uM,mx,my);
     gl.drawArrays(gl.TRIANGLES,0,3);
     requestAnimationFrame(frame);
