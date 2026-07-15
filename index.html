@@ -163,6 +163,16 @@
   .sound.on i:nth-child(2){animation-delay:.25s;} .sound.on i:nth-child(3){animation-delay:.5s;}
   @keyframes eq{0%,100%{height:5px}50%{height:15px}}
 
+  .p-note{font-family:var(--serif);font-size:.95rem;color:var(--dim);max-width:30rem;margin:0 0 1rem;}
+  .p-sub{display:flex;gap:.6rem;flex-wrap:wrap;max-width:26rem;}
+  .p-sub input{flex:1 1 12rem;min-width:0;font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;
+    color:var(--cream);background:transparent;border:0;border-bottom:1px solid var(--line);padding:.5rem .1rem;}
+  .p-sub input::placeholder{color:var(--faint);}
+  .p-sub input:focus{outline:none;border-bottom-color:var(--accent);}
+  .p-sub button{flex:none;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+    color:#161b22;background:var(--cream);border:0;padding:.55rem 1rem;cursor:pointer;transition:background .3s;}
+  .p-sub button:hover{background:#fff;}
+
   /* teleport: zoom into the shader, then open the book */
   .warp .stage{transform:scale(2.3);opacity:0;transform-origin:50% 46%;transition:transform 1.4s cubic-bezier(.55,0,.1,1),opacity 1.2s ease .15s;}
   .warp #fx,.warp .sky{transform:scale(1.85);filter:brightness(1.25) saturate(1.15);transition:transform 1.4s cubic-bezier(.55,0,.1,1),filter 1.4s ease;}
@@ -205,8 +215,8 @@
     <a href="mailto:amogh@beomelo.com">Connect</a>
     <div class="mmenu-reads">
       <a href="/behavioral-debt/">01 &middot; Behavioral Debt</a>
-      <span>02 &middot; The audit, in progress</span>
-      <span>03 &middot; New chapters, soon</span>
+      <span>02 &middot; The audit, 24 apps scored</span>
+      <span>03 &middot; Next, the Behavioral Debt chapter</span>
     </div>
   </div>
 
@@ -248,8 +258,8 @@
       </div>
       <div class="reads" id="reads">
         <a href="/behavioral-debt/"><span class="num">01</span>Behavioral Debt &middot; the book</a>
-        <a class="off"><span class="num">02</span>The audit &middot; in progress</a>
-        <a class="off"><span class="num">03</span>New chapters &middot; soon</a>
+        <a class="off"><span class="num">02</span>The audit &middot; 24 apps, scored</a>
+        <a class="off"><span class="num">03</span>Next &middot; the Behavioral Debt chapter</a>
       </div>
     </div>
 
@@ -285,6 +295,14 @@
             <span class="p-item off">Art Direction <span>Soon</span></span>
             <span class="p-item off">UX <span>Soon</span></span>
           </div>
+        </div>
+        <div class="p-section">
+          <p class="p-sh">Get notified</p>
+          <p class="p-note">When the next chapter and the audit land. No spam, one click to leave.</p>
+          <form class="p-sub" action="https://buttondown.com/api/emails/embed-subscribe/itsamoghtiwari" method="post" target="_blank">
+            <input type="email" name="email" placeholder="you@email.com" required aria-label="Email">
+            <button type="submit">Notify me</button>
+          </form>
         </div>
         <div class="p-section">
           <p class="p-sh">Media mentions</p>
