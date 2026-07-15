@@ -8,14 +8,14 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Amogh Tiwari">
-<meta property="og:title" content="Behavioral Debt — Amogh Tiwari">
+<meta property="og:title" content="Behavioral Debt · Amogh Tiwari">
 <meta property="og:description" content="A field guide to the hidden cost of persuasive design. Written in the open.">
 <meta property="og:url" content="https://amoghtiwari.com/">
 <meta property="og:image" content="https://amoghtiwari.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Behavioral Debt — Amogh Tiwari">
+<meta name="twitter:title" content="Behavioral Debt · Amogh Tiwari">
 <meta name="twitter:description" content="A field guide to the hidden cost of persuasive design. Written in the open.">
 <meta name="twitter:image" content="https://amoghtiwari.com/og.png">
 <meta name="twitter:site" content="@itsamoghtiwari">
@@ -235,7 +235,7 @@
       <h1>Behavioral Debt</h1>
       <p class="by">a field guide to the hidden cost of persuasive design</p>
       <p class="meta"><span class="dot">&bull;</span> 3 CHAPTERS &middot; 116 PATTERNS &middot; 38 SOURCES VERIFIED</p>
-      <p class="live"><span class="pulse"></span><span id="count">&mdash;</span> reading now
+      <p class="live"><span class="pulse"></span><span id="count">&middot;</span> reading now
         <a class="d01" href="/behavioral-debt/" title="Social proof, Pattern D-01. A live-reader counter nudges you to stay. This is the demonstration: you noticed it, and it worked. The number is illustrative until analytics is connected.">D-01</a></p>
       <a class="cta" href="/behavioral-debt/">Read the manuscript</a>
     </div>
@@ -247,9 +247,9 @@
         <p class="lbl"><span class="k">ACCESS</span> &nbsp; <span class="v">OPEN</span></p>
       </div>
       <div class="reads" id="reads">
-        <a href="/behavioral-debt/"><span class="num">01</span>Behavioral Debt &mdash; the book</a>
-        <a class="off"><span class="num">02</span>The audit &mdash; in progress</a>
-        <a class="off"><span class="num">03</span>New chapters &mdash; soon</a>
+        <a href="/behavioral-debt/"><span class="num">01</span>Behavioral Debt &middot; the book</a>
+        <a class="off"><span class="num">02</span>The audit &middot; in progress</a>
+        <a class="off"><span class="num">03</span>New chapters &middot; soon</a>
       </div>
     </div>
 
@@ -315,7 +315,7 @@
   if (GOATCOUNTER) {
     fetch('https://' + GOATCOUNTER + '.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
       .then(r => r.json()).then(d => { countEl.textContent = (d.count || '').toString(); })
-      .catch(() => { countEl.textContent = '—'; });
+      .catch(() => { countEl.textContent = '·'; });
   } else {
     countEl.textContent = String(2 + Math.floor(Math.random() * 17));   // 2-18, changes each load, labeled D-01
   }
