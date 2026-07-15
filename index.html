@@ -21,7 +21,7 @@
 <meta name="twitter:site" content="@itsamoghtiwari">
 <style>
   :root{
-    --cream:#ece7dd; --dim:rgba(236,231,221,.62); --faint:rgba(236,231,221,.4);
+    --cream:#ece7dd; --dim:rgba(240,236,228,.85); --faint:rgba(240,236,228,.62);
     --line:rgba(236,231,221,.22); --accent:#e08a4e;
     --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",Georgia,serif;
     --mono:"SFMono-Regular",ui-monospace,Menlo,Consolas,"Liberation Mono",monospace;
@@ -70,7 +70,7 @@
   h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,7.4vw,5.6rem);line-height:1.02;
     letter-spacing:.005em;color:#f3efe7;text-wrap:balance;max-width:16ch;}
   .by{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.4vw,1.5rem);
-    color:var(--dim);margin-top:1.5rem;letter-spacing:.02em;}
+    color:rgba(240,236,228,.9);margin-top:1.5rem;letter-spacing:.02em;}
   .meta{margin-top:1.7rem;color:var(--faint);font-size:.6rem;letter-spacing:.22em;}
   .meta .dot{color:var(--accent);}
   .live{margin-top:1.5rem;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
@@ -127,6 +127,10 @@
   .p-links{display:flex;gap:1.7rem;margin-top:2rem;flex-wrap:wrap;}
   .p-links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .3s;}
   .p-links a:hover{color:var(--cream);}
+  .plink{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .3s;}
+  .plink:hover{color:var(--cream);}
+  .p-bio p.small a{color:var(--cream);text-decoration:none;border-bottom:1px solid var(--line);}
+  .p-bio p.small a:hover{color:var(--accent);}
 
   @media (max-width:680px){
     .stage{padding:1.3rem 1.3rem;}
@@ -156,8 +160,8 @@
         </nav>
       </div>
       <div class="right">
-        <p class="lbl d">STATUS &middot; WRITING IN THE OPEN</p>
-        <p class="lbl f loc">DRAFT 0.1 &middot; BUILT IN PUBLIC</p>
+        <p class="lbl d">STATUS &middot; WRITING</p>
+        <p class="lbl f loc">DRAFT 0.1</p>
         <p class="lbl"><span class="clock" id="clock">00:00:00</span> UTC</p>
       </div>
     </div>
@@ -196,13 +200,13 @@
     <div class="p-inner">
       <div class="p-top">
         <span class="lbl d">PROFILE &nbsp;//&nbsp; 001</span>
-        <span class="lbl f">ON BUILDING IN THE OPEN</span>
+        <a class="lbl f plink" href="https://www.beomelo.com" target="_blank" rel="noopener">CURRENTLY BUILDING OMELO</a>
       </div>
       <h2 class="p-name">Amogh Tiwari</h2>
       <div class="p-bio">
         <p>I build consumer software for a living, which means my job is to get people to open an app, come back, and eventually pay for it. That is also why I write about behavioral design: from inside the room where the decisions get made, not from above it.</p>
         <p>Behavioral Debt is my attempt to map how software moves people, what it quietly costs them, and how to build the honest version. It is written in the open, and every claim in it is meant to be checked.</p>
-        <p class="small">Founder and writer</p>
+        <p class="small">Currently building <a href="https://www.beomelo.com" target="_blank" rel="noopener">Omelo</a>, precision pet healthcare and parenting</p>
         <div class="p-links">
           <a href="https://x.com/itsamoghtiwari" target="_blank" rel="noopener">X / Twitter</a>
           <a href="https://www.linkedin.com/in/itsamoghtiwari/" target="_blank" rel="noopener">LinkedIn</a>
