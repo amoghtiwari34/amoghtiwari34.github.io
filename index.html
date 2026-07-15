@@ -173,6 +173,19 @@
     color:#161b22;background:var(--cream);border:0;padding:.55rem 1rem;cursor:pointer;transition:background .3s;}
   .p-sub button:hover{background:#fff;}
 
+  .thanks{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;
+    background:rgba(11,13,18,.6);padding:1.2rem;}
+  .thanks.show{display:flex;}
+  .thanks-card{background:#fff;max-width:23rem;width:100%;padding:2.2rem 2rem;text-align:center;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;box-shadow:0 30px 70px -20px rgba(0,0,0,.5);}
+  .thanks-ic{width:2.6rem;height:2.6rem;border-radius:50%;background:#1550c8;color:#fff;display:flex;
+    align-items:center;justify-content:center;font-size:1.15rem;margin:0 auto 1.1rem;}
+  .thanks-card h3{font-size:1.5rem;font-weight:700;color:#0b0d12;margin:0 0 .6rem;letter-spacing:-.02em;}
+  .thanks-card p{font-size:.98rem;line-height:1.5;color:#3f4a5a;margin:0 0 1.5rem;}
+  .thanks-btn{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+    background:#1550c8;color:#fff;border:0;padding:.7rem 1.5rem;cursor:pointer;}
+  .thanks-btn:hover{background:#0f3fa8;}
+
   /* teleport: zoom into the shader, then open the book */
   .warp .stage{transform:scale(2.3);opacity:0;transform-origin:50% 46%;transition:transform 1.4s cubic-bezier(.55,0,.1,1),opacity 1.2s ease .15s;}
   .warp #fx,.warp .sky{transform:scale(1.85);filter:brightness(1.25) saturate(1.15);transition:transform 1.4s cubic-bezier(.55,0,.1,1),filter 1.4s ease;}
@@ -359,6 +372,13 @@
       setTimeout(function(){ window.location.href = cta.getAttribute('href'); }, 1350);
     });
   })();
+  (function(){
+    var f=document.querySelector('.p-sub'), t=document.getElementById('thanks');
+    if(f) f.addEventListener('submit',function(e){ e.preventDefault(); f.reset(); t.classList.add('show'); });
+    var c=document.getElementById('thanksClose');
+    if(c) c.addEventListener('click',function(){ t.classList.remove('show'); });
+    if(t) t.addEventListener('click',function(e){ if(e.target===t) t.classList.remove('show'); });
+  })();
 </script>
 
 <script>
@@ -456,5 +476,13 @@
   });
 })();
 </script>
+<div class="thanks" id="thanks">
+  <div class="thanks-card">
+    <div class="thanks-ic">&#10003;</div>
+    <h3>Thank you</h3>
+    <p>The next chapters of Behavioral Debt are on the way, and you'll be among the first to read them.</p>
+    <button class="thanks-btn" id="thanksClose">Close</button>
+  </div>
+</div>
 </body>
 </html>
