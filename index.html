@@ -23,8 +23,8 @@
   :root{
     --cream:#ece7dd; --dim:rgba(240,236,228,.85); --faint:rgba(240,236,228,.62);
     --line:rgba(236,231,221,.22); --accent:#e08a4e;
-    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",Georgia,serif;
-    --mono:"SFMono-Regular",ui-monospace,Menlo,Consolas,"Liberation Mono",monospace;
+    --serif:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    --mono:"Helvetica Neue",Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
@@ -68,10 +68,10 @@
   .eyebrow{color:var(--dim);position:relative;padding:0 1.6rem;margin-bottom:2.4rem;}
   .eyebrow::before,.eyebrow::after{content:"";position:absolute;top:50%;width:1rem;height:1px;background:var(--line);}
   .eyebrow::before{left:-.3rem} .eyebrow::after{right:-.3rem}
-  h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,7.4vw,5.6rem);line-height:1.02;
-    letter-spacing:.005em;color:#f3efe7;text-wrap:balance;max-width:16ch;}
-  .by{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.4vw,1.5rem);
-    color:rgba(240,236,228,.9);margin-top:1.5rem;letter-spacing:.02em;}
+  h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.6rem,7.4vw,5.6rem);line-height:1.0;
+    letter-spacing:-.025em;color:#ffffff;text-wrap:balance;max-width:16ch;}
+  .by{font-family:var(--serif);font-style:normal;font-weight:500;font-size:clamp(1.05rem,2.4vw,1.5rem);
+    color:#ffffff;margin-top:1.5rem;letter-spacing:0;}
   .meta{margin-top:1.7rem;color:var(--faint);font-size:.6rem;letter-spacing:.22em;}
   .meta .dot{color:var(--accent);}
   .live{margin-top:1.5rem;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
@@ -114,8 +114,8 @@
   .p-close:hover{background:rgba(236,231,221,.14);}
   .p-inner{position:relative;z-index:2;max-width:66rem;margin:0 auto;padding:2rem 2.2rem 5rem;}
   .p-top{display:flex;justify-content:space-between;padding:.4rem 0 3rem;}
-  .p-name{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,11vw,7.4rem);line-height:.9;
-    color:#f3efe7;letter-spacing:.01em;margin-bottom:1.7rem;}
+  .p-name{font-family:var(--serif);font-weight:700;font-size:clamp(3rem,11vw,7.4rem);line-height:.9;
+    color:#ffffff;letter-spacing:-.03em;margin-bottom:1.7rem;}
   .p-portrait{position:relative;overflow:hidden;aspect-ratio:16/9;background:#26313c;}
   .p-portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);display:block;position:relative;z-index:2;}
   .p-portrait::after{content:"";position:absolute;inset:0;z-index:3;
@@ -156,9 +156,9 @@
   .p-soon{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);}
 
   /* teleport: zoom into the shader, then open the book */
-  .warp .stage{transform:scale(1.9);opacity:0;transform-origin:50% 46%;transition:transform .8s cubic-bezier(.6,0,.15,1),opacity .8s ease;}
-  .warp #fx,.warp .sky{transform:scale(1.5);transition:transform .8s cubic-bezier(.6,0,.15,1);}
-  .warp .grain,.warp .vig,.warp .mtoggle{opacity:0;transition:opacity .5s;}
+  .warp .stage{transform:scale(2.3);opacity:0;transform-origin:50% 46%;transition:transform 1.4s cubic-bezier(.55,0,.1,1),opacity 1.2s ease .15s;}
+  .warp #fx,.warp .sky{transform:scale(1.85);filter:brightness(1.25) saturate(1.15);transition:transform 1.4s cubic-bezier(.55,0,.1,1),filter 1.4s ease;}
+  .warp .grain,.warp .vig,.warp .mtoggle{opacity:0;transition:opacity .8s;}
 
   @media (max-width:680px){
     .stage{padding:1.3rem 1.3rem;}
@@ -277,7 +277,7 @@
           </div>
         </div>
         <div class="p-section">
-          <p class="p-sh">Media</p>
+          <p class="p-sh">Media mentions</p>
           <p class="p-soon">Coming soon</p>
         </div>
       </div>
@@ -323,7 +323,7 @@
       e.preventDefault();
       window.__warp=true;
       document.body.classList.add('warp');
-      setTimeout(function(){ window.location.href = cta.getAttribute('href'); }, 780);
+      setTimeout(function(){ window.location.href = cta.getAttribute('href'); }, 1350);
     });
   })();
 </script>
