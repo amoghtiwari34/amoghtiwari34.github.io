@@ -278,7 +278,12 @@
         </div>
         <div class="p-section">
           <p class="p-sh">Media mentions</p>
-          <p class="p-soon">Coming soon</p>
+          <div class="p-grid">
+            <a class="p-item" href="https://yourstory.com/the-decrypting-story/blockchain-startup-deefy-loan-rent-valuable-nfts-bnpl" target="_blank" rel="noopener">YourStory</a>
+            <a class="p-item" href="https://india.entrepreneur.com/news-and-trends/dayfi-sdk-raises-funds-from-polygon-to-make-nfts-more/443982" target="_blank" rel="noopener">Entrepreneur</a>
+            <a class="p-item" href="https://www.news18.com/agency-feeds/after-losing-two-dogs-this-founder-built-an-ai-for-pets-now-going-viral-10144825.html" target="_blank" rel="noopener">News18</a>
+            <a class="p-item" href="https://www.business-standard.com/content/press-releases-ani/after-losing-two-dogs-this-founder-built-an-ai-for-pets-now-going-viral-126061200379_1.html" target="_blank" rel="noopener">Business Standard</a>
+          </div>
         </div>
       </div>
     </div>
@@ -302,7 +307,7 @@
       .then(r => r.json()).then(d => { countEl.textContent = (d.count || '').toString(); })
       .catch(() => { countEl.textContent = '—'; });
   } else {
-    countEl.textContent = '7';   // demonstration figure, labeled D-01
+    countEl.textContent = String(2 + Math.floor(Math.random() * 17));   // 2-18, changes each load, labeled D-01
   }
 
   // profile overlay open/close
