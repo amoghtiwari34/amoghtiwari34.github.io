@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Amogh Tiwari</title>
 <meta name="description" content="Amogh Tiwari. Writing on behavioral design and the hidden cost of persuasive software.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Amogh Tiwari">
+<meta property="og:title" content="Behavioral Debt — Amogh Tiwari">
+<meta property="og:description" content="A field guide to the hidden cost of persuasive design. Written in the open.">
+<meta property="og:url" content="https://amoghtiwari.com/">
+<meta property="og:image" content="https://amoghtiwari.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Behavioral Debt — Amogh Tiwari">
+<meta name="twitter:description" content="A field guide to the hidden cost of persuasive design. Written in the open.">
+<meta name="twitter:image" content="https://amoghtiwari.com/og.png">
+<meta name="twitter:site" content="@itsamoghtiwari">
 <style>
   :root{
     --cream:#ece7dd; --dim:rgba(236,231,221,.62); --faint:rgba(236,231,221,.4);
@@ -87,6 +101,33 @@
     font-size:1rem;animation:spin 32s linear infinite;}
   @keyframes spin{to{transform:translateX(-50%) rotate(360deg)}}
 
+  /* profile overlay, opens on click, same dusk world */
+  .profile{position:fixed;inset:0;z-index:30;overflow-y:auto;opacity:0;visibility:hidden;
+    transition:opacity .55s ease;}
+  .profile.show{opacity:1;visibility:visible;}
+  .p-sky{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,
+    #232f3b 0%,#33414e 28%,#6f7680 46%,#b3aca1 56%,#d68a5c 68%,#c66c3a 82%,#8f4728 100%);}
+  .p-close{position:fixed;top:1.5rem;right:1.8rem;z-index:3;width:2.5rem;height:2.5rem;border-radius:50%;
+    border:1px solid var(--line);background:rgba(236,231,221,.06);color:var(--cream);font-size:1.1rem;
+    line-height:1;cursor:pointer;transition:background .3s;}
+  .p-close:hover{background:rgba(236,231,221,.14);}
+  .p-inner{position:relative;z-index:2;max-width:66rem;margin:0 auto;padding:2rem 2.2rem 5rem;}
+  .p-top{display:flex;justify-content:space-between;padding:.4rem 0 3rem;}
+  .p-name{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,11vw,7.4rem);line-height:.9;
+    color:#f3efe7;letter-spacing:.01em;margin-bottom:1.7rem;}
+  .p-portrait{position:relative;overflow:hidden;aspect-ratio:16/9;background:#26313c;}
+  .p-portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);display:block;position:relative;z-index:2;}
+  .p-portrait::after{content:"";position:absolute;inset:0;z-index:3;
+    background:linear-gradient(180deg,rgba(43,57,71,.5),rgba(180,95,52,.42));mix-blend-mode:color;}
+  .p-ph{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:clamp(3rem,10vw,5.5rem);color:rgba(236,231,221,.45);}
+  .p-bio{max-width:38rem;margin:2.8rem 0 0;}
+  .p-bio p{font-family:var(--serif);font-size:1.16rem;line-height:1.55;color:var(--cream);margin-bottom:1.15rem;}
+  .p-bio p.small{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-top:1.4rem;}
+  .p-links{display:flex;gap:1.7rem;margin-top:2rem;flex-wrap:wrap;}
+  .p-links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .3s;}
+  .p-links a:hover{color:var(--cream);}
+
   @media (max-width:680px){
     .stage{padding:1.3rem 1.3rem;}
     nav{gap:1rem;flex-wrap:wrap;}
@@ -110,7 +151,7 @@
         <p class="lbl d"><span class="name">AMOGH TIWARI</span> &nbsp;//&nbsp; BEHAVIORAL DESIGN</p>
         <nav>
           <a href="/behavioral-debt/">Book</a>
-          <a href="#reads">Writing</a>
+          <a href="#" id="aboutLink">About</a>
           <a href="mailto:amogh@beomelo.com">Connect</a>
         </nav>
       </div>
@@ -147,6 +188,34 @@
     <div class="compass">&#10023;</div>
   </div>
 
+  <div class="profile" id="profile" aria-hidden="true">
+    <div class="p-sky"></div>
+    <div class="grain"></div>
+    <div class="vig"></div>
+    <button class="p-close" id="pClose" aria-label="Close">&times;</button>
+    <div class="p-inner">
+      <div class="p-top">
+        <span class="lbl d">PROFILE &nbsp;//&nbsp; 001</span>
+        <span class="lbl f">ON BUILDING IN THE OPEN</span>
+      </div>
+      <h2 class="p-name">Amogh Tiwari</h2>
+      <div class="p-portrait">
+        <img src="amogh.jpg" alt="Amogh Tiwari" onerror="this.style.display='none'">
+        <span class="p-ph">AT</span>
+      </div>
+      <div class="p-bio">
+        <p>I build consumer software for a living, which means my job is to get people to open an app, come back, and eventually pay for it. That is also why I write about behavioral design: from inside the room where the decisions get made, not from above it.</p>
+        <p>Behavioral Debt is my attempt to map how software moves people, what it quietly costs them, and how to build the honest version. It is written in the open, and every claim in it is meant to be checked.</p>
+        <p class="small">Founder and writer</p>
+        <div class="p-links">
+          <a href="https://x.com/itsamoghtiwari" target="_blank" rel="noopener">X / Twitter</a>
+          <a href="https://www.linkedin.com/in/itsamoghtiwari/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:amogh@beomelo.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script>
   const clock = document.getElementById('clock');
   function tick(){
@@ -167,6 +236,13 @@
   } else {
     countEl.textContent = '7';   // demonstration figure, labeled D-01
   }
+
+  // profile overlay open/close
+  const profile = document.getElementById('profile');
+  const openP = (e) => { if (e) e.preventDefault(); profile.classList.add('show'); profile.scrollTop = 0; };
+  document.getElementById('aboutLink').addEventListener('click', openP);
+  document.getElementById('pClose').addEventListener('click', () => profile.classList.remove('show'));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') profile.classList.remove('show'); });
 </script>
 </body>
 </html>
