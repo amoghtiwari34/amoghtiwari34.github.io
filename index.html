@@ -133,13 +133,38 @@
   .p-bio p.small a{color:var(--cream);text-decoration:none;border-bottom:1px solid var(--line);}
   .p-bio p.small a:hover{color:var(--accent);}
 
+  .mtoggle{display:none;position:fixed;top:1.15rem;right:1.2rem;z-index:40;width:2.2rem;height:2.2rem;
+    background:none;border:0;flex-direction:column;align-items:flex-end;justify-content:center;gap:6px;cursor:pointer;padding:0;}
+  .mtoggle span{display:block;height:1.5px;width:1.4rem;background:var(--cream);transition:transform .3s,opacity .3s;}
+  .mtoggle.open span:nth-child(1){transform:translateY(3.75px) rotate(45deg);}
+  .mtoggle.open span:nth-child(2){transform:translateY(-3.75px) rotate(-45deg);}
+  .mmenu{display:none;position:fixed;inset:0;z-index:35;background:rgba(18,24,30,.86);backdrop-filter:blur(10px);
+    flex-direction:column;align-items:center;justify-content:center;gap:1.7rem;}
+  .mmenu>a{font-family:var(--mono);font-size:.9rem;letter-spacing:.24em;text-transform:uppercase;color:var(--cream);text-decoration:none;}
+  .mmenu-reads{margin-top:2rem;display:flex;flex-direction:column;gap:.9rem;align-items:center;}
+  .mmenu-reads a,.mmenu-reads span{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-decoration:none;}
+
   @media (max-width:680px){
     .stage{padding:1.3rem 1.3rem;}
-    nav{gap:1rem;flex-wrap:wrap;}
-    .top .right .loc{display:none;}
-    .bot{flex-direction:column;gap:1.6rem;align-items:flex-start;}
-    .reads{text-align:left;}
+    .lbl{font-size:.56rem;letter-spacing:.15em;}
+    .bsuffix{display:none;}
+    nav{display:none;}
+    .top .right{display:none;}
+    .bot{display:none;}
+    .meta{display:none;}
     .compass{display:none;}
+    .center{padding:0 .4rem;}
+    .eyebrow{margin-bottom:1.5rem;font-size:.56rem;padding:0 1.3rem;}
+    h1{font-size:clamp(2.1rem,13vw,3.1rem);max-width:11ch;line-height:1.02;}
+    .by{font-size:1rem;max-width:26ch;margin-top:1.1rem;}
+    .meta{font-size:.55rem;letter-spacing:.13em;max-width:92%;white-space:normal;text-align:center;line-height:1.9;margin-top:1.4rem;}
+    .live{font-size:.55rem;margin-top:1.2rem;}
+    .cta{padding:.85rem 1.6rem;font-size:.58rem;letter-spacing:.16em;margin-top:2rem;}
+    .mtoggle{display:flex;}
+    .mmenu.show{display:flex;}
+    .p-top{flex-direction:column;gap:.5rem;}
+    .p-name{font-size:clamp(2.6rem,15vw,3.4rem);}
+    .p-inner{padding:4.5rem 1.4rem 4rem;}
   }
   @media (prefers-reduced-motion:reduce){.sky,.grain,.compass{animation:none;}}
 </style>
@@ -149,12 +174,23 @@
   <canvas id="fx"></canvas>
   <div class="grain"></div>
   <div class="vig"></div>
+  <button class="mtoggle" id="mtoggle" aria-label="Menu"><span></span><span></span></button>
+  <div class="mmenu" id="mmenu">
+    <a href="/behavioral-debt/">Book</a>
+    <a href="#" id="mAbout">About</a>
+    <a href="mailto:amogh@beomelo.com">Connect</a>
+    <div class="mmenu-reads">
+      <a href="/behavioral-debt/">01 &middot; Behavioral Debt</a>
+      <span>02 &middot; The audit, in progress</span>
+      <span>03 &middot; New chapters, soon</span>
+    </div>
+  </div>
 
   <div class="stage">
 
     <div class="top">
       <div class="brand">
-        <p class="lbl d"><span class="name">AMOGH TIWARI</span> &nbsp;//&nbsp; BEHAVIORAL DESIGN</p>
+        <p class="lbl d"><span class="name">AMOGH TIWARI</span><span class="bsuffix"> &nbsp;//&nbsp; BEHAVIORAL DESIGN</span></p>
         <nav>
           <a href="/behavioral-debt/">Book</a>
           <a href="#" id="aboutLink">About</a>
@@ -245,6 +281,12 @@
   document.getElementById('aboutLink').addEventListener('click', openP);
   document.getElementById('pClose').addEventListener('click', () => profile.classList.remove('show'));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') profile.classList.remove('show'); });
+  (function(){
+    var mt=document.getElementById('mtoggle'), mm=document.getElementById('mmenu');
+    mt.addEventListener('click',function(){mt.classList.toggle('open');mm.classList.toggle('show');});
+    mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mt.classList.remove('open');mm.classList.remove('show');});});
+    document.getElementById('mAbout').addEventListener('click',function(e){e.preventDefault();document.getElementById('profile').classList.add('show');});
+  })();
 </script>
 
 <script>
